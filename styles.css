@@ -1,0 +1,418 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#game-container {
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* En-tête */
+.header {
+    padding: 20px 0 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #e6c300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Statistiques du joueur */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 3px;
+}
+
+/* Message du jeu */
+.message-container {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    min-height: 60px;
+}
+
+.message {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+/* Districts */
+.districts-row {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #222;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.districts-row::-webkit-scrollbar {
+    height: 4px;
+}
+
+.districts-row::-webkit-scrollbar-track {
+    background: #222;
+}
+
+.districts-row::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.district-button {
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    padding: 12px;
+    margin-right: 10px;
+    min-width: 110px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.district-button.active {
+    background-color: #4a6c2f;
+}
+
+.district-button.locked {
+    background-color: #444;
+    opacity: 0.6;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Boutons d'action */
+.action-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.action-button {
+    flex: 1;
+    background-color: #3d3d3d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+.action-button:hover {
+    background-color: #4d4d4d;
+}
+
+.action-button:active {
+    transform: translateY(1px);
+}
+
+/* Bouton Jour Suivant */
+.next-day-button {
+    background-color: #e6c300;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.next-day-button:hover {
+    background-color: #ffd700;
+}
+
+.next-day-button:active {
+    transform: translateY(1px);
+}
+
+/* Modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.modal-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-right: 30px;
+    color: #e6c300;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+/* Produits et articles */
+.product-item, .shop-item {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-info {
+    flex: 3;
+}
+
+.product-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 3px;
+    color: #fff;
+}
+
+.product-price, .product-quantity, .product-risk, .product-available {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 3px;
+}
+
+.product-risk {
+    color: #e74c3c;
+}
+
+.item-description {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.buy-button, .sell-button {
+    flex: 1;
+    max-width: 80px;
+    background-color: #4a6c2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+}
+
+.buy-button:hover {
+    background-color: #5a8d3f;
+}
+
+.sell-button {
+    background-color: #c0392b;
+}
+
+.sell-button:hover {
+    background-color: #e74c3c;
+}
+
+.disabled-button {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Adaptations pour petits écrans */
+@media (max-width: 400px) {
+    .stats-container {
+        padding: 10px 5px;
+    }
+    
+    .stat-value {
+        font-size: 16px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    .action-button, .next-day-button {
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Progress bars pour chaleur police/cartel */
+.heat-bar {
+    height: 4px;
+    width: 100%;
+    background-color: #444;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.heat-bar-fill {
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.police-heat {
+    background-color: #3498db;
+}
+
+.cartel-heat {
+    background-color: #e74c3c;
+}
+
+/* Feedback visuel */
+.profit {
+    color: #2ecc71;
+}
+
+.loss {
+    color: #e74c3c;
+}
+
+/* Easter egg animation quand le joueur fait une grande vente */
+@keyframes bigSale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.big-sale {
+    animation: bigSale 0.5s ease-in-out;
+}
