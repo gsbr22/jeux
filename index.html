@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Empire des Rues</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- En-tête -->
+        <header class="header">
+            <h1 class="title">Empire des Rues</h1>
+            <h2 class="subtitle">Jour <span id="current-day">1</span></h2>
+        </header>
+
+        <!-- Statistiques du joueur -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value" id="player-money">$500</div>
+                <div class="stat-label">Cash</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="player-territory">1</div>
+                <div class="stat-label">Territoire</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="player-police">0%</div>
+                <div class="stat-label">Police 👮</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="player-cartel">0%</div>
+                <div class="stat-label">Cartel 🔫</div>
+            </div>
+        </div>
+
+        <!-- Message du jeu -->
+        <div class="message-container">
+            <p class="message" id="game-message">Bienvenue à Hyland Point! Tu débarques sans argent, sans produit et sans contact. Construis ton empire!</p>
+        </div>
+
+        <!-- Quartiers -->
+        <div class="section">
+            <h3 class="section-title">Quartiers</h3>
+            <div class="districts-row" id="districts-container">
+                <!-- Les districts seront ajoutés dynamiquement -->
+            </div>
+        </div>
+
+        <!-- Boutons d'action principaux -->
+        <div class="action-buttons-container">
+            <button class="action-button" id="market-button">Marché</button>
+            <button class="action-button" id="inventory-button">Inventaire</button>
+            <button class="action-button" id="shop-button">Boutique</button>
+        </div>
+
+        <!-- Bouton Jour Suivant -->
+        <button class="next-day-button" id="next-day-button">Jour Suivant</button>
+
+        <!-- Modales -->
+        <div class="modal" id="market-modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h3 class="modal-title">Marché Noir</h3>
+                <div class="modal-body" id="market-items">
+                    <!-- Les produits seront ajoutés dynamiquement -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="inventory-modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h3 class="modal-title">Votre Inventaire</h3>
+                <div class="modal-body" id="inventory-items">
+                    <!-- Les produits de l'inventaire seront ajoutés dynamiquement -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="shop-modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h3 class="modal-title">Boutique</h3>
+                <div class="modal-body" id="shop-items">
+                    <!-- Les articles de la boutique seront ajoutés dynamiquement -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay pour les modales -->
+        <div class="modal-overlay" id="modal-overlay"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="game.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
